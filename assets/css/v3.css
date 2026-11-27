@@ -1,0 +1,204 @@
+/* Zajil PR — v3 additions. Loaded after v2.css: same design system, extra components for the
+   owner's content review (advantages bar, values with descriptions, capabilities, service groups,
+   eight advantages, approach steps, founder bio groups). */
+
+/* longer headline + sub-line in the hero */
+.v3 .hero h1 { font-size: clamp(2.6rem, 5.6vw, 4.7rem); line-height: 1.02; }
+.v3 .hero__sub { max-width: 46ch; font-size: clamp(1rem, 1.3vw, 1.14rem); line-height: 1.7; }
+.v3 .collage { min-height: 500px; }
+.v3 .collage__main { inset: 0 0 30px 40px; }
+.v3 .collage .grid-mark { bottom: -10px; }
+@media (max-width: 960px) { .v3 .collage { min-height: 320px; } .v3 .collage__main { inset: 0 0 30px 0; } }
+
+/* footer statement is a two-line slogan */
+.v3 .footer__statement { font-size: clamp(2rem, 3.8vw, 3.1rem); max-width: 13ch; line-height: 1.05; }
+
+
+/* section head with a short intro line */
+.head__lead { margin: 16px 0 0; max-width: 60ch; font-size: 1.05rem; color: var(--muted); }
+.v3 .head h2 { margin-bottom: 0; }
+
+/* page hero sub-line that is a full sentence */
+.page-hero__sub--wide { max-width: 52ch; }
+
+/* ---------- advantages bar (replaces the counters) ---------- */
+.statbar__card--adv { align-items: start; }
+.statbar__card--adv .statbar__title { font-size: clamp(1.3rem, 2vw, 1.6rem); align-self: center; }
+.statbar__card--adv .stat strong { font-size: 1.08rem; letter-spacing: -.02em; line-height: 1.3; font-weight: 600; }
+.statbar__card--adv .stat strong::before { content: ""; display: block; width: 26px; height: 3px; border-radius: 3px; background: var(--red); margin-bottom: 14px; }
+.statbar__card--adv .stat span { font-size: .86rem; line-height: 1.6; margin-top: 10px; }
+@media (max-width: 960px) {
+  .statbar__card--adv .stat { padding-left: 0; border-left: 0; }
+}
+@media (max-width: 560px) { .statbar__card--adv { grid-template-columns: 1fr; } }
+
+/* ---------- Communicate with Confidence (red panel, no quote mark) ---------- */
+.ready--v3::before { content: none; }
+.ready--v3 { align-items: center; }
+.ready__title { margin: 0; color: #fff; font: 700 clamp(2.4rem, 5.2vw, 4.4rem)/1.02 var(--font); letter-spacing: -.045em; }
+.ready--v3 p { margin-bottom: 1em; }
+.ready--v3 p:last-of-type { margin-bottom: 26px; }
+
+/* ---------- About ---------- */
+.split--top { align-items: start; }
+.split--top .split__media { position: sticky; top: 120px; }
+@media (max-width: 900px) { .split--top .split__media { position: relative; top: 0; } }
+.panel p:last-child { margin-bottom: 0; }
+.v3 .panel--reach { grid-column: span 6; grid-row: auto; }
+.v3 .panel--history { grid-column: span 6; }
+.panel--values-v3 { grid-column: span 12; }
+.vlist--desc { gap: 18px 28px; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 6px; }
+@media (max-width: 960px) { .v3 .panel--reach, .v3 .panel--history { grid-column: span 12; } .vlist--desc { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .vlist--desc { grid-template-columns: 1fr; } }
+.vlist--desc li { align-items: flex-start; }
+.vlist--desc li svg { margin-top: 3px; }
+.vlist--desc b { display: block; color: #fff; font-weight: 600; }
+.vlist--desc span { display: block; margin-top: 4px; font-weight: 400; font-size: .92rem; line-height: 1.55; color: rgba(255, 255, 255, .85); }
+.panel__lead { max-width: 70ch; color: var(--muted); }
+.caps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 26px; }
+.cap { display: flex; flex-direction: column; gap: 6px; padding: 22px; border-radius: var(--r-md); background: var(--light); min-width: 0; }
+.cap__icon { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; background: var(--navy); color: #fff; margin-bottom: 10px; }
+.cap__icon svg { width: 20px; height: 20px; }
+.cap b { color: var(--navy); font-weight: 600; font-size: 1.02rem; line-height: 1.3; }
+.cap span:last-child { font-size: .9rem; color: var(--muted); line-height: 1.55; }
+@media (max-width: 960px) { .caps { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .caps { grid-template-columns: 1fr; } }
+.sectors--5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+@media (max-width: 1100px) { .sectors--5 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 900px) { .sectors--5 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .sectors--5 { grid-template-columns: 1fr; } .sector { min-height: 0; } }
+
+/* ---------- Services: three groups ---------- */
+.svc-group { scroll-margin-top: 110px; }
+.svc-group + .svc-group { margin-top: clamp(48px, 6vw, 80px); }
+.svc-group__head { display: flex; align-items: baseline; gap: 16px; padding-bottom: 18px; margin-bottom: 22px; border-bottom: 1px solid var(--line); }
+.svc-group__num { font: 700 .9rem/1 var(--font); color: var(--red); letter-spacing: .1em; }
+.svc-group__head h2 { font-size: clamp(1.5rem, 2.8vw, 2.2rem); }
+.scard__body p + p { margin-top: 2px; }
+.v3 .scard--wide .scard__media { aspect-ratio: 16 / 5.5; }
+
+/* ---------- Why Zajil PR? ---------- */
+.frame { position: relative; overflow: hidden; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px 56px; align-items: center; background: var(--navy); color: var(--on-navy); border-radius: var(--r-xl); padding: clamp(32px, 5vw, 64px); }
+.frame h2 { color: #fff; font-size: clamp(1.9rem, 3.6vw, 2.9rem); }
+.frame p { font-size: 1.04rem; line-height: 1.75; }
+.frame p:last-child { margin-bottom: 0; }
+.frame .grid-mark { position: absolute; right: 26px; top: 26px; opacity: .5; }
+@media (max-width: 860px) { .frame { grid-template-columns: 1fr; } .frame .grid-mark { display: none; } }
+.reasons--v3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.reasons--v3 .reason { padding: clamp(26px, 3vw, 36px); }
+.reasons--v3 .reason h3 { font-size: 1.3rem; }
+.reasons--v3 .reason p { font-size: .96rem; line-height: 1.75; }
+.reason--navy { background: var(--navy); border-color: var(--navy); color: var(--on-navy); }
+.reason--navy h3 { color: #fff; }
+.reason--navy .reason__icon { background: rgba(255, 255, 255, .12); }
+.reason--navy .reason__num { color: rgba(255, 255, 255, .6); }
+@media (max-width: 800px) { .reasons--v3 { grid-template-columns: 1fr; } }
+.steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; list-style: none; margin: 0; padding: 0; }
+.step { position: relative; background: #fff; border: 1px solid var(--line); border-radius: var(--r-lg); padding: 28px; min-width: 0; }
+.step__num { display: block; font: 700 clamp(2.4rem, 4vw, 3.2rem)/1 var(--font); color: var(--navy); letter-spacing: -.04em; margin-bottom: 22px; }
+.step h3 { font-size: 1.25rem; margin-bottom: 10px; }
+.step p { font-size: .93rem; line-height: 1.65; margin: 0; }
+.step:not(:last-child)::after { content: ""; position: absolute; top: 50px; right: -14px; width: 10px; height: 10px; border-top: 2px solid var(--red); border-right: 2px solid var(--red); transform: rotate(45deg); }
+.step--red { background: var(--red); border-color: var(--red); color: rgba(255, 255, 255, .88); }
+.step--red .step__num, .step--red h3 { color: #fff; }
+@media (max-width: 960px) { .steps { grid-template-columns: 1fr 1fr; } .step::after { display: none; } }
+@media (max-width: 520px) { .steps { grid-template-columns: 1fr; } }
+
+/* ---------- Founder ---------- */
+.f-hero__lead--title { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; color: #fff; }
+.bio__title { font-size: clamp(1.8rem, 3.4vw, 2.6rem); margin: clamp(40px, 5vw, 64px) 0 8px; padding-top: clamp(32px, 4vw, 48px); border-top: 1px solid var(--line); }
+.bio__group { display: flex; align-items: center; gap: 12px; font-size: 1.2rem; margin: 34px 0 14px; color: var(--navy); }
+.bio__group::before { content: ""; width: 22px; height: 3px; border-radius: 3px; background: var(--red); flex: none; }
+
+/* ---------- Contact ---------- */
+.office__text { margin: 14px 0 0; font-size: .95rem; line-height: 1.65; }
+
+/* registered business name (owner's note 2026-11-23) */
+.footer__id { display: grid; gap: 4px; line-height: 1.5; }
+.footer__id strong { color: #fff; font-weight: 600; font-size: .9rem; }
+.footer__bottom:has(.footer__id) { align-items: end; }
+.office__legal { margin: 8px 0 0; font-size: .74rem; font-weight: 600; letter-spacing: .1em; color: rgba(255, 255, 255, .7); }
+
+/* ==========================================================================
+   No photos in v3 (owner, 2026-11-25): brand colour blocks with the logo's square pattern.
+   Only the founder's portrait remains a photo.
+   ========================================================================== */
+.cpanel { position: relative; overflow: hidden; isolation: isolate; width: 100%; height: 100%; border-radius: var(--r-xl); box-shadow: var(--shadow); }
+.cpanel--red { background: linear-gradient(150deg, #c8213a 0%, var(--red) 45%, #7a0d1a 100%); }
+.cpanel--navy { background: linear-gradient(150deg, var(--navy-600) 0%, var(--navy) 50%, var(--navy-900) 100%); }
+.cpanel::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(70% 60% at 85% 15%, rgba(255, 255, 255, .16), transparent 70%); }
+.cpanel__grid { position: absolute; left: 9%; top: 12%; display: grid; grid-template-columns: repeat(6, var(--sq)); gap: calc(var(--sq) * .38); --sq: clamp(16px, 2.6vw, 34px); }
+.cpanel__grid i { width: var(--sq); height: var(--sq); border-radius: calc(var(--sq) * .22); background: rgba(255, 255, 255, .12); }
+.cpanel__grid i:nth-child(7n+3) { background: rgba(255, 255, 255, .42); }
+.cpanel__grid i:nth-child(11n+6) { background: rgba(255, 255, 255, .78); }
+.cpanel--red .cpanel__grid i:nth-child(5n+1) { background: rgba(8, 19, 32, .55); }
+.cpanel--navy .cpanel__grid i:nth-child(5n+1) { background: var(--red); }
+.cpanel__grid i:nth-child(n+19) { opacity: .45; }
+
+/* where the photos were */
+.v3 .collage__main { background: none; }
+.v3 .collage__main .cpanel { border-radius: inherit; box-shadow: none; }
+.v3 .page-hero__media .cpanel { aspect-ratio: 16 / 11; height: auto; }
+.v3 .split__media .cpanel { aspect-ratio: 5 / 4; height: auto; }
+
+/* home cards: solid brand colours (like the Media Relations & Content card) */
+.v3 .svc .grid-mark { position: absolute; top: 26px; left: 26px; }
+.v3 .svc--lg .grid-mark { top: 36px; left: 36px; grid-template-columns: repeat(4, 22px); gap: 9px; }
+.v3 .svc--lg .grid-mark i { width: 22px; height: 22px; border-radius: 5px; }
+.svc--navy { background: var(--navy); }
+.svc--navy::after { background: linear-gradient(160deg, rgba(35, 64, 95, .55), rgba(8, 19, 32, .5)); }
+.svc--slate { background: var(--navy-600); }
+.svc--slate::after { background: linear-gradient(160deg, rgba(255, 255, 255, .06), rgba(8, 19, 32, .45)); }
+.v3 .svc--red .grid-mark i:nth-child(3n+1), .v3 .svc--red .grid-mark i:nth-child(3n+1) { background: rgba(8, 19, 32, .5); }
+.v3 .svc--lg { padding-top: 140px; }
+
+/* service cards: colour band instead of a photo */
+.scard__media--red, .scard__media--navy { position: relative; aspect-ratio: 16 / 5; }
+.v3 .scard--wide .scard__media--red, .v3 .scard--wide .scard__media--navy { aspect-ratio: 16 / 3.2; }
+.scard__media--red { background: linear-gradient(150deg, #c8213a, var(--red) 50%, #7a0d1a); }
+.scard__media--navy { background: linear-gradient(150deg, var(--navy-600), var(--navy) 55%, var(--navy-900)); }
+.scard__media .grid-mark { position: absolute; left: 26px; top: 24px; }
+.scard__media--red .grid-mark i:nth-child(3n+1) { background: rgba(8, 19, 32, .5); }
+@media (max-width: 600px) { .v3 .collage { min-height: 200px; } .v3 .cpanel__grid { --sq: 15px; } }
+
+/* a picture chosen in the control panel instead of a colour block */
+.cpanel--photo { background: var(--navy); }
+.cpanel--photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* founder section on About Us follows the introduction directly */
+.section--flush-top { padding-top: 0; }
+
+/* advantages bar: every title row is as tall as the longest title, so all descriptions start on one line
+   (works whatever titles the owner types in the control panel) */
+.statbar__card--adv .statbar__title { text-wrap: balance; }
+.statbar__card--adv .stat strong { text-wrap: balance; }
+@supports (grid-template-rows: subgrid) {
+  .statbar__card--adv { grid-template-rows: auto auto; row-gap: 0; }
+  .statbar__card--adv .statbar__title { grid-row: 1 / span 2; }
+  .statbar__card--adv .stat { display: grid; grid-row: span 2; grid-template-rows: subgrid; row-gap: 10px; align-content: start; }
+  .statbar__card--adv .stat span { margin-top: 0; }
+  @media (max-width: 960px) {
+    .statbar__card--adv { row-gap: 24px; }
+    .statbar__card--adv .statbar__title { grid-row: auto; }
+  }
+}
+@supports not (grid-template-rows: subgrid) {
+  .statbar__card--adv .stat strong { min-height: calc(2.6em + 17px); }
+}
+
+/* one word per line in the advantage titles, so every title is the same shape (two words = two lines) */
+.statbar__card--adv .stat strong { width: min-content; }
+
+/* contact form: success message and the hidden spam trap (bots tick it, people never see it) */
+.form-msg.is-ok { display: block; background: #e9f6ee; color: #1d6b3a; }
+.form-msg a { color: inherit; font-weight: 600; }
+.form-trap { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.contact-form { position: relative; }
+.contact-form button[disabled] { opacity: .7; cursor: progress; }
+
+/* top bar: phone and e-mail stay visible on phones (only a long address is hidden there) */
+@media (max-width: 560px) {
+  .v3 .topbar li:first-child { display: inline-flex; }
+  .v3 .topbar li.topbar__address { display: none; }
+  .v3 .topbar ul { gap: 8px 18px; }
+}
